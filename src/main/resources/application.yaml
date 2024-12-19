@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: JsonWebToken
+  datasource:
+    url: jdbc:mysql://localhost:3307/jsonwebtoken
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123
+  jpa:
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: none
