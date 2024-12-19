@@ -1,14 +1,20 @@
 spring:
+  devtools:
+    add-properties: true
   application:
     name: JsonWebToken
   datasource:
-    url: jdbc:mysql://localhost:3307/jsonwebtoken
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: 123
+    url: jdbc:postgresql://localhost:5439/jsonwebtoken
+    username: postgres
+    password: password
   jpa:
     show-sql: true
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       ddl-auto: none
+jwt:
+  expiryMinutes: 30
+  expiryDay: 14
+  accessKey: c2VjcmV0QGtleS5hcGlfaGFzX2JlZW5fZGVzaWduZWRfYnlfTm9uZ0hvYW5nVnU=
+  refreshKey: c2VjcmV0QGtleS5hcGlfaGFzX2JlZW5fZGVzaWduZWRfYnlfSmF2YVRlY2g=
