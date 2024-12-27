@@ -20,7 +20,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.stereotype.Service;
 
 @Service
-@Slf4j
+@Slf4j(topic = "AUTHENTICATION-SERVICE")
 @RequiredArgsConstructor
 public class AuthenticationServiceImp implements AuthenticationService {
 
@@ -36,11 +36,15 @@ public class AuthenticationServiceImp implements AuthenticationService {
         }
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword(), user.getAuthorities()));
 
+        log.info("getAuthorities {} - {}", user.getAuthorities(), user.isAdmin());
+
         String accessToken = jwtService.generateToken(user.getId(), user.getUsername(), user.getAuthorities());
         String refreshToken = jwtService.generateRefreshToken(user.getId(), user.getUsername(), user.getAuthorities());
         return TokenResponse.builder()
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)
+                .isAdmin(user.isAdmin())
+                .authorities(user.getAuthorities())
                 .build();
     }
 

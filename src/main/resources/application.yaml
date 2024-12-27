@@ -16,5 +16,5 @@ spring:
 jwt:
   expiryMinutes: 30
   expiryDay: 14
-  accessKey: c2VjcmV0QGtleS5hcGlfaGFzX2JlZW5fZGVzaWduZWRfYnlfTm9uZ0hvYW5nVnU=
+  accessKey: bc7eb5abc4d2495d6576fa7f139dafc884f2624e476636fb7de702757995e11b
   refreshKey: c2VjcmV0QGtleS5hcGlfaGFzX2JlZW5fZGVzaWduZWRfYnlfSmF2YVRlY2g=

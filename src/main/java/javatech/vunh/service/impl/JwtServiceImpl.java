@@ -69,11 +69,11 @@ public class JwtServiceImpl implements JwtService {
     private String generateToken(Map<String, Object> claims, String username) {
         log.info("======================= generateToken =======================");
         return Jwts.builder()
-                .setClaims(claims)
+                .setClaims(claims) // User information
                 .setSubject(username)
-                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setIssuedAt(new Date(System.currentTimeMillis())) // Token issuance time
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * expiryMinutes))
-                .signWith(getKey(ACCESS_TOKEN), SignatureAlgorithm.HS256)
+                .signWith(getKey(ACCESS_TOKEN), SignatureAlgorithm.HS256) // Encrypted with HS256 algorithm
                 .compact();
     }
 

@@ -74,6 +74,11 @@ public class User extends BaseEntity<Long> implements UserDetails, Serializable 
     @OneToMany(mappedBy = "user")
     private Set<GroupHasUser> groups = new HashSet<>();
 
+    public boolean isAdmin() {
+        return getAuthorities().stream()
+                .anyMatch(grantedAuthority -> "admin".equals(grantedAuthority.getAuthority()));
+    }
+
     /**
      * @return Returns the authorities granted to the user. Cannot return null.
      */

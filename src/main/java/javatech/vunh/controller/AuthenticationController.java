@@ -8,6 +8,7 @@ package javatech.vunh.controller;
 
 
 import javatech.vunh.controller.requests.SignInRequest;
+import javatech.vunh.controller.response.TokenResponse;
 import javatech.vunh.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +26,7 @@ public class AuthenticationController {
 
     @PostMapping("/access-token")
     @ResponseStatus(OK)
-    public ResponseEntity<?> accessToken(@RequestBody SignInRequest request){
+    public ResponseEntity<TokenResponse> accessToken(@RequestBody SignInRequest request){
         log.info("POST /access-token");
         return new ResponseEntity<>(authenticationService.createAccessToken(request), OK);
     }

@@ -8,12 +8,16 @@ package javatech.vunh.controller.response;
 
 import lombok.Builder;
 import lombok.Getter;
+import org.springframework.security.core.GrantedAuthority;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 @Getter
 @Builder
 public class TokenResponse implements Serializable {
     private String accessToken;
     private String refreshToken;
+    private boolean isAdmin;
+    private Collection<? extends GrantedAuthority> authorities;
 }
